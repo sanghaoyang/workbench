@@ -438,6 +438,7 @@ def settings_update():
             db.set_setting("city", found[0]["n"])
             db.set_setting("city_code", found[0]["c"])
             return jsonify(db.get_all_settings())
+        return jsonify({"error": "未找到城市（仅支持国内城市）"}), 404
     return jsonify(db.get_all_settings())
 
 
